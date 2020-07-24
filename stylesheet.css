@@ -9,6 +9,7 @@
 
 body {
   background-color: dimgrey;
+  padding-bottom: 45%;
 }
 
 p {
@@ -17,4 +18,12 @@ p {
   width: 70%;
   margin-left: 15%;
   margin-right: 15%;
+}
+
+.startBtn {
+  height: 60%;
+  width: 20%;
+  margin-left: 38%;
+  margin-right: 15%;
+  background-color: yellow;
 }
