@@ -27,3 +27,12 @@
   margin-right: 15%;
   background-color: yellow;
 }
+
+h3 {
+  text-align: center;
+  background-color: dodgerblue;
+  width: 50%;
+  border-style: ridge;
+  border-width: 2px;
+}
+
