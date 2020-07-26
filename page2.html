@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Basic JavaScript Dump</title>
+  </head>
+  <body>
+    <!-- We created an empty HTML div. Note that there is no content inside. -->
+    <div id="empty-div"></div>
+    <script>
+      var targetDiv = document.querySelector("#empty-div");
+      targetDiv.textContent = "HEL:LO world";
+      var newDivy = document.createElement("div");
+      newDivy.textContent = "WHATS UP!";
+      targetDiv.appendChild(newDivy);
+      var imgdiv = document.createElement("img");
+      imgdiv.setAttribute("src", "./img.jpg");
+      imgdiv.setAttribute("height", "100px");
+      imgdiv.setAttribute("class", "fancyimg hello");
+      targetDiv.appendChild(imgdiv);
+    </script>
+  </body>
+</html>
