@@ -44,10 +44,10 @@
             </h1>
           </div>
           <!-- SCORE DISPLAY BOX -->
-          <div class="col-sm-2" style="background-color: gold;  border-style: ridge; border-width: 2px; padding-bottom: 20px; text-align: center;">
+          <div id="scoreDisplay" class="col-sm-2" style="background-color: gold;  border-style: ridge; border-width: 2px; padding-bottom: 20px; text-align: center;">
             <br>            
-            <h4 class="currentScore">
-              SCORE: 100
+            <h4>
+             SCORE: <span id="currentScore">0</span>
             </h4>
           </div>
         </div>
@@ -99,7 +99,16 @@
                             </h3>
                         </div>                        
                         </div>
+                    <div class="row">
+                        <div class="col">
+                            <!-- CONTINUE BUTTON -->
+                            <h3 onclick="toggleContinue()" id="continueBtn" class="mx-auto p-3">
+                                CLICK TO CONTINUE
+                            </h3>
+                        </div>                        
+                        </div>    
             </div>
+
         </main>    
           <!-- JAVASCRIPT LINK -->
     <script src="myscript.js"></script>

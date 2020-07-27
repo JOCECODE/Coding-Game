@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Basic JavaScript Dump</title>
-  </head>
-  <body>
-    <!-- We created an empty HTML div. Note that there is no content inside. -->
-    <div id="empty-div"></div>
-    <script>
-      var targetDiv = document.querySelector("#empty-div");
-      targetDiv.textContent = "HEL:LO world";
-      var newDivy = document.createElement("div");
-      newDivy.textContent = "WHATS UP!";
-      targetDiv.appendChild(newDivy);
-      var imgdiv = document.createElement("img");
-      imgdiv.setAttribute("src", "./img.jpg");
-      imgdiv.setAttribute("height", "100px");
-      imgdiv.setAttribute("class", "fancyimg hello");
-      targetDiv.appendChild(imgdiv);
-    </script>
-  </body>
-</html>
+var dataStructure = [
+  {
+    question: "What Year was I born",
+    answers: [1989,1986,1998, 1980], 
+    correctAnswer: 1986
+  },
+  {
+    question: "What Year was I born",
+    answers: [1989,1986,1998, 1980], 
+    correctAnswer: 1986
+  }
+]
+var currentQuestionObj = dataStructure[1]
+function nextQuestion(){
+  var userSelectedAnswer = prompt(dataStructure.question)
+  if(userSelectedAnswer === correctAnswer) {
+    console.log("You WIn")
+  } else {
+    //substract the time
+  }
+  currentQuestionObj = dataStructure[index+1]
+  renderQuestion()
+}
