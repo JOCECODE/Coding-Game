@@ -1,3 +1,4 @@
+// ARRAY WITH QUESTIONS, ANSWERS, AND CORRECT ANSWERS
 var questionArray = [
   {
     question: "What Year was I born",
@@ -10,6 +11,10 @@ var questionArray = [
     correctAnswer: "always",
   },
 ];
+
+// GLOBAL VARIABLES
+var headerEl = document.querySelector("#header");
+var mainEl = document.querySelector("#mainContainer");
 var continueButton = document.querySelector("#continueBtn");
 var questionFiller = document.querySelector("#questionBox");
 var answer1Filler = document.querySelector("#answer1");
@@ -23,13 +28,16 @@ var secondsLeft = 60;
 var currentQuestion = 0;
 continueButton.hidden = true;
 
+//SET TIMER COUNTDOWN
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " sec. left";
 
-    if (secondsLeft === 0) {
+    if (secondsLeft < 1) {
       clearInterval(timerInterval);
+      gameOver();
+      return;
     }
   }, 1000);
 }
@@ -40,93 +48,100 @@ function setCounterText() {
   countEl.textContent = count;
 }
 
-// TO VERIFY IF IT'S RIGHT ON CLICK
-answer1Filler.addEventListener("click", function () {
+// TO VERIFY ANSWER 1 IF IT'S RIGHT ON CLICK
+answer1Filler.addEventListener("click", function (e) {
+  e.preventDefault();
   if (
     answer1Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
+    answer1Filler.style.background = "green";
+    continueButton.hidden = false;
     count++;
     setCounterText();
   } else {
     secondsLeft = secondsLeft - 5;
+    answer1Filler.style.background = "red";
   }
 });
 
-answer2Filler.addEventListener("click", function () {
+// TO VERIFY ANSWER 2 IF IT'S RIGHT ON CLICK
+answer2Filler.addEventListener("click", function (e) {
+  e.preventDefault();
   if (
     answer2Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
+    answer2Filler.style.background = "green";
+    continueButton.hidden = false;
     count++;
     setCounterText();
   } else {
+    answer2Filler.style.background = "red";
     secondsLeft = secondsLeft - 5;
   }
 });
 
-answer3Filler.addEventListener("click", function () {
+// TO VERIFY ANSWER 3 IF IT'S RIGHT ON CLICK
+answer3Filler.addEventListener("click", function (e) {
+  e.preventDefault();
   if (
     answer3Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
+    answer3Filler.style.background = "green";
+    continueButton.hidden = false;
     count++;
     setCounterText();
   } else {
+    answer3Filler.style.background = "red";
     secondsLeft = secondsLeft - 5;
   }
 });
 
-answer4Filler.addEventListener("click", function () {
+// TO VERIFY ANSWER 4 IF IT'S RIGHT ON CLICK
+answer4Filler.addEventListener("click", function (e) {
+  e.preventDefault();
   if (
     answer4Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
+    answer4Filler.style.background = "green";
+    continueButton.hidden = false;
     count++;
+
     setCounterText();
   } else {
+    answer4Filler.style.background = "red";
     secondsLeft = secondsLeft - 5;
   }
 });
 
-// RENDER  Q AND A
+// RENDER  QUESTIONS AND ANSWERS
 function renderQandA() {
-  // for (var i = 0; i < questionArray.length; i++) {
+  if (currentQuestion >= questionArray.length) {
+    gameOver();
+    return;
+  }
   questionFiller.textContent = questionArray[currentQuestion].question;
   answer1Filler.textContent = questionArray[currentQuestion].answers[0];
   answer2Filler.textContent = questionArray[currentQuestion].answers[1];
   answer3Filler.textContent = questionArray[currentQuestion].answers[2];
   answer4Filler.textContent = questionArray[currentQuestion].answers[3];
-  // }
 }
 var setQuiz = renderQandA;
 setQuiz();
 
-// TOGGLE CONTINUE BUTTON
-function toggleContinue() {
-  var x = continueButton;
-  if (x.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+// CONTINUE BUTTON HIDE AND SHOW FUNCTION
+continueButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  continueButton.hidden = true;
+  answer1Filler.style.background = "dodgerblue";
+  answer2Filler.style.background = "dodgerblue";
+  answer3Filler.style.background = "dodgerblue";
+  answer4Filler.style.background = "dodgerblue";
+  currentQuestion = currentQuestion + 1;
+  renderQandA();
+});
+
+// GAMEOVER SEQUENCE
+function gameOver() {
+  mainEl.hidden = true;
+  headerEl.hidden = true;
 }
-
-// function myFunction() {
-//   var x = document.getElementById("myDIV");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
-// put into function
-
-//   var response = questionArray[i].answers[i];
-//   if (response == questionArray[i].correctAnswer[i]) {
-//     count++;
-//     alert("correct")
-// } else {
-//   alert("wrong")
-//
-// questionFiller.textContent = questionArray[0].question;
-// answer1Filler.textContent = questionArray[0].answers[0];
-// answer2Filler.textContent = questionArray[0].answers[1];
-// answer3Filler.textContent = questionArray[0].answers[2];
-// answer4Filler.textContent = questionArray[0].answers[3];
