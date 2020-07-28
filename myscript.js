@@ -28,6 +28,7 @@ var nameInput = document.querySelector("#name-input");
 var scoreList = document.querySelector("#postedScores");
 var gameO = document.querySelector("#mainGameOver");
 var endS = document.querySelector(".endScoreBaby");
+var endB = document.querySelector(".btnEnd2");
 var count = 0;
 var secondsLeft = 60;
 var currentQuestion = 0;
@@ -218,9 +219,9 @@ nameScoreForm.addEventListener("submit", function (event) {
 });
 
 // CLEAR SCORES FUNCTION
-function clearAllScores(event) {
+endB.addEventListener("click", function clearAllScores(event) {
   event.preventDefault();
   localStorage.clear();
   scoreList.innerHTML = "";
   postedScores = [];
-}
+});
