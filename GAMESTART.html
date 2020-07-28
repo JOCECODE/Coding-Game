@@ -26,10 +26,12 @@
   </head>
 
   <body>
+      <!-- GAME HEADER -->
     <header id="header">
         
         <div class="container">
         <div class="row">
+
             <!-- TIME DISPLAY BOX -->
             <div class="col-sm-2" style="background-color: gold; border-style: ridge; border-width: 2px; padding-bottom: 20px; text-align: center;">          
                <br>
@@ -37,12 +39,14 @@
                     60 sec. left
                 </h4>
               </div>
+              
               <!-- TITLE CODING QUIZ -->
           <div class="col-sm-8" style="background-color:dodgerblue; text-align: center; border-style: ridge; border-width: 2px; border-left: 0px; border-right: 0px; padding-bottom: 20px;">
             <h1 style="margin-top: 11px;">
                 <strong>CODING QUIZ</strong>
             </h1>
           </div>
+
           <!-- SCORE DISPLAY BOX -->
           <div id="scoreDisplay" class="col-sm-2" style="background-color: gold;  border-style: ridge; border-width: 2px; padding-bottom: 20px; text-align: center;">
             <br>            
@@ -51,12 +55,14 @@
             </h4>
           </div>
         </div>
-    </header> 
+    </header>
+
     <!-- 2 BREAKS FOR FORMATTING --> 
     <br> 
     <main id="mainContainer">
     <div class="container">
         <div class="row">
+
             <!-- QUESTION BEING ASKED -->
             <div class="col">
                 <h2 id="questionBox" class="mx-auto p-3" style="text-align: center; width: 70%; border-style: ridge; border-width: 2px; background-color: gold;">
@@ -65,6 +71,7 @@
             </div>
             </div>
             <div class="row">
+
                 <!-- ANSWER CHOICE 1  -->
                 <div class="col">
                 <h3 id="answer1" class="mx-auto p-3">
@@ -73,8 +80,10 @@
             </div>
             
             </div>
+
             <div class="row">
                 <div class="col">
+
                     <!-- ANSWER CHOICE 2 -->
                     <h3 id="answer2" class="mx-auto p-3" >
                         MCNUGETS ARE BOMB
@@ -93,6 +102,7 @@
                     </div> 
                     <div class="row">
                         <div class="col">
+
                             <!-- ANSWER CHOICE 4 -->
                             <h3 id="answer4" class="mx-auto p-3">
                                 I DO SIR I EAT ASS
@@ -101,15 +111,75 @@
                         </div>
                     <div class="row">
                         <div class="col">
+
                             <!-- CONTINUE BUTTON -->
                             <h3  id="continueBtn" class="mx-auto p-3">
                                 CLICK TO CONTINUE
                             </h3>
                         </div>                        
                         </div>    
-            </div>
+                    </main>
 
-        </main>    
+                    <!-- GAMEOVER SEQUENCE -->
+            <section id="mainGameOver">
+                
+                <!-- GAMEOVER HEADER -->
+                <header class="header headerGo">
+                  <span class="GAMEOVER">GAMEOVER</span>
+                </header>
+                <div class="container">
+                  <div class="row">
+                    
+                    <!-- ENTER NAME FOR SCORE -->
+                    <div class="col-sm-12 nameScore">
+                      <!-- NAME FORM -->
+                        <form id="nameScoreForm">
+                        <input
+                          id="name-input"
+                          class="form-control"
+                          type="text"
+                          placeholder="ENTER NAME HERE"
+                        />
+                      </form>
+                    </div> 
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <!-- START OVER BUTTON -->
+                        <button class="btnEnd1">
+                            STARTOVER
+                        </button>
+                    </div>
+                    <div class="col-sm-6">
+                        
+                        <!-- CLEAR SCORES BUTTON -->
+                        <button class="btnEnd2">
+                            CLEAR SCORES
+                        </button>
+                    </div>
+                </div>
+                <br>
+
+              <!-- SAVED SCORES TEXT DISPLAY -->
+                <div class="row">
+                    <div class="col">
+                        <h4 class="savedSco">
+                            SAVED SCORES
+                        </h4>
+                    </div>
+                </div>
+               <hr>
+                <div class="row">
+                  <div class="col-sm-8">
+                     
+                    <!-- POSTED SCORES FILLS IN WITH JAVASCRIPT -->
+                    <ul id="postedScores"></ul>
+                  </div>
+                </div>
+              </section>
           <!-- JAVASCRIPT LINK -->
     <script src="myscript.js"></script>
   </body>

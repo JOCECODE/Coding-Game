@@ -39,3 +39,62 @@ h3 {
 #continueBtn {
   background-color: violet;
 }
+
+.GAMEOVER {
+  font-size: 48px;
+  font-weight: 1000;
+  font-style: oblique;
+  color: rgb(233, 214, 162);
+  text-shadow: -5px -2px #212529;
+}
+
+.headerGo {
+  margin-bottom: 2%;
+}
+
+.endScore {
+  background-color: red;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.savedSco {
+  color: lightslategrey;
+  text-align: center;
+  font-size: 35px;
+  font-style: oblique;
+  font-weight: 1000;
+  text-shadow: -5px 5px darkslategrey;
+  margin-top: -2%;
+  margin-left: 1%;
+}
+
+.btnEnd1 {
+  color: teal;
+  background-color: khaki;
+  border-style: groove;
+  margin-left: 65%;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.btnEnd2 {
+  color: palegoldenrod;
+  background-color: lightseagreen;
+  border-style: groove;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 800;
+}

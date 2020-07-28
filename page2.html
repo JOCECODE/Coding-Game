@@ -1,23 +1,63 @@
-var dataStructure = [
-  {
-    question: "What Year was I born",
-    answers: [1989,1986,1998, 1980], 
-    correctAnswer: 1986
-  },
-  {
-    question: "What Year was I born",
-    answers: [1989,1986,1998, 1980], 
-    correctAnswer: 1986
-  }
-]
-var currentQuestionObj = dataStructure[1]
-function nextQuestion(){
-  var userSelectedAnswer = prompt(dataStructure.question)
-  if(userSelectedAnswer === correctAnswer) {
-    console.log("You WIn")
-  } else {
-    //substract the time
-  }
-  currentQuestionObj = dataStructure[index+1]
-  renderQuestion()
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Game</title>
+
+    <!-- CSS RESET LINK -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"
+    />
+
+    <!-- BOOTSTRAP LINK -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <!-- STYLESHEET LINK -->
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+
+  <body>
+    <section id="mainGameOver">
+      <header class="header headerGo">
+        <span class="GAMEOVER">GAMEOVER</span>
+      </header>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 nameScore">
+            <form id="nameScoreForm">
+              <input
+                id="name-input"
+                class="form-control"
+                type="text"
+                placeholder="ENTER NAME HERE"
+              />
+            </form>
+          </div>
+          <div id="continueBtn"></div>
+          <div class="col-sm-6 endScore">
+            <h4>
+              SCORE:
+            </h4>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-8">
+          <ul id="postedScores"></ul>
+        </div>
+      </div>
+    </section>
+    <!-- JAVASCRIPT LINK -->
+    <script src="myscript.js"></script>
+  </body>
+</html>

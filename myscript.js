@@ -23,10 +23,17 @@ var answer3Filler = document.querySelector("#answer3");
 var answer4Filler = document.querySelector("#answer4");
 var timeEl = document.querySelector(".time");
 var countEl = document.querySelector("#currentScore");
+var nameScoreForm = document.querySelector("#nameScoreForm");
+var nameInput = document.querySelector("#name-input");
+var scoreList = document.querySelector("#postedScores");
+var gameO = document.querySelector("#mainGameOver");
+var endS = document.querySelector(".endScoreBaby");
 var count = 0;
 var secondsLeft = 60;
 var currentQuestion = 0;
 continueButton.hidden = true;
+gameO.hidden = true;
+var postedScores = [];
 
 //SET TIMER COUNTDOWN
 function setTime() {
@@ -51,6 +58,8 @@ function setCounterText() {
 // TO VERIFY ANSWER 1 IF IT'S RIGHT ON CLICK
 answer1Filler.addEventListener("click", function (e) {
   e.preventDefault();
+
+  // IF ANSWER IS CORRECT
   if (
     answer1Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
@@ -58,6 +67,8 @@ answer1Filler.addEventListener("click", function (e) {
     continueButton.hidden = false;
     count++;
     setCounterText();
+
+    // FOR WRONG ANSWER
   } else {
     secondsLeft = secondsLeft - 5;
     answer1Filler.style.background = "red";
@@ -67,6 +78,8 @@ answer1Filler.addEventListener("click", function (e) {
 // TO VERIFY ANSWER 2 IF IT'S RIGHT ON CLICK
 answer2Filler.addEventListener("click", function (e) {
   e.preventDefault();
+
+  // IF ANSWER IS RIGHT
   if (
     answer2Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
@@ -74,6 +87,8 @@ answer2Filler.addEventListener("click", function (e) {
     continueButton.hidden = false;
     count++;
     setCounterText();
+
+    // FOR ANSWER WRONG
   } else {
     answer2Filler.style.background = "red";
     secondsLeft = secondsLeft - 5;
@@ -83,6 +98,8 @@ answer2Filler.addEventListener("click", function (e) {
 // TO VERIFY ANSWER 3 IF IT'S RIGHT ON CLICK
 answer3Filler.addEventListener("click", function (e) {
   e.preventDefault();
+
+  // IF ANSWER IS RIGHT
   if (
     answer3Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
@@ -90,6 +107,7 @@ answer3Filler.addEventListener("click", function (e) {
     continueButton.hidden = false;
     count++;
     setCounterText();
+    // FOR ANSWER IS WRONG
   } else {
     answer3Filler.style.background = "red";
     secondsLeft = secondsLeft - 5;
@@ -99,6 +117,8 @@ answer3Filler.addEventListener("click", function (e) {
 // TO VERIFY ANSWER 4 IF IT'S RIGHT ON CLICK
 answer4Filler.addEventListener("click", function (e) {
   e.preventDefault();
+
+  // IF ANSWER IF RIGHT
   if (
     answer4Filler.textContent === questionArray[currentQuestion].correctAnswer
   ) {
@@ -107,13 +127,16 @@ answer4Filler.addEventListener("click", function (e) {
     count++;
 
     setCounterText();
-  } else {
+  }
+
+  // FOR WRONG ANSWER
+  else {
     answer4Filler.style.background = "red";
     secondsLeft = secondsLeft - 5;
   }
 });
 
-// RENDER  QUESTIONS AND ANSWERS
+// RENDER  QUESTIONS AND ANSWERS FUNCTION
 function renderQandA() {
   if (currentQuestion >= questionArray.length) {
     gameOver();
@@ -144,4 +167,60 @@ continueButton.addEventListener("click", function (e) {
 function gameOver() {
   mainEl.hidden = true;
   headerEl.hidden = true;
+  gameO.hidden = false;
+}
+
+// CALLING INIT FUNCTION
+init();
+
+// POSTED SCORES
+function renderScores() {
+  scoreList.innerHTML = "";
+  for (var i = 0; i < postedScores.length; i++) {
+    var posted = postedScores[i].name;
+    var userScore = postedScores[i].score;
+    var li = document.createElement("li");
+    li.textContent = posted + ": " + userScore;
+    scoreList.prepend(li);
+  }
+}
+
+// INIT FUNCTION LOCAL STORAGE
+function init() {
+  var storedScores = JSON.parse(localStorage.getItem("nameScore"));
+  if (storedScores !== null) {
+    postedScores = storedScores;
+  }
+
+  renderScores();
+}
+
+// STORESCORES OR NAME
+function storeScores() {
+  localStorage.setItem("nameScore", JSON.stringify(postedScores));
+}
+
+// SUBMIT FORM
+nameScoreForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  var scoreText = nameInput.value.trim();
+  if (scoreText === "") {
+    return;
+  }
+  var userPairScore = {
+    name: scoreText,
+    score: count,
+  };
+  postedScores.push(userPairScore);
+  nameInput.value = "";
+  storeScores();
+  renderScores();
+});
+
+// CLEAR SCORES FUNCTION
+function clearAllScores(event) {
+  event.preventDefault();
+  localStorage.clear();
+  scoreList.innerHTML = "";
+  postedScores = [];
 }
